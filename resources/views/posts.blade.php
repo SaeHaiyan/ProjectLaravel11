@@ -2,8 +2,7 @@
 <x-layout>
 
   <x-slot:title>{{ $title }}</x-slot>
-
- @foreach ($posts as $post)
+  @foreach ($posts as $post)
 
     <article class="py-8 max-w-screen-md border-b border-gray-300">
       <a href="/posts/{{ $post ['id'] }}" class="hover:underline">
@@ -12,12 +11,12 @@
       <div class="text-base text-gray-500">
         <a href="#">{{ $post ['author']}}</a> | {{ $post->created_at->format('j F Y')}}
       </div>
-      <!-- Str::limit('bla bla', ??) is for display how many characters in the paragraph -->
+
       <p class="my-4 font-light">{{ Str::limit($post ['body'], 150)}}</p>
 
       <a href="/posts/{{ $post['id'] }}" class="font-medium text-blue-500 hover:underline ">Read More &raquo;</a>
 
     </article>
-    @endforeach
+  @endforeach
 
 </x-layout>
