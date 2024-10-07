@@ -10,10 +10,10 @@
           {{ $post ['title'] }}</h2>
       </a>
       <div>
-        By
-        <a href="#" class="hover:underline text-base text-green-500">
-          {{ $post ['author'] }}</a> 
-        in
+        By <a href="/authors/{{ $post->author->username }}" class="hover:underline text-base text-green-500">
+          {{ $post->author->name }}</a> 
+        in <a href="/categories/{{ $post->category->slug }}" class="hover:underline text-base text-green-500">
+          {{ $post->category->name }}</a>
         | {{ $post->created_at->format('j F Y')}}
       </div>
 
